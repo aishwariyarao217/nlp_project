@@ -31,7 +31,7 @@ from transformers import PreTrainedTokenizer
 class BigQueryDataset(Dataset):
     _len = None
 
-    def __init__(self, tokenizer: PreTrainedTokenizer, project_name="focus-empire-270208", table_name="asnq.train",
+    def __init__(self, tokenizer: PreTrainedTokenizer, project_name="nlpproject-270223", table_name="ASNQ_train",
                  batch_size=32, block_size=512):
         print(f"Creating features from table {project_name}.{table_name} batch_size = {batch_size}")
 
