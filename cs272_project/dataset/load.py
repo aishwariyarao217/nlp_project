@@ -27,12 +27,12 @@ from cs272_project.dataset.big_query_dataset import BigQueryDataset
 def load_and_cache_examples(args, tokenizer, project_name="nlpproject-270223", evaluate=False, batch_size=32):
     if evaluate:
         return BigQueryDataset(tokenizer, project_name=project_name,
-                               table_name="ASNQ_dev",
+                               table_name="ASNQ_dev.ASNQ_dev",
                                batch_size=batch_size,
                                block_size=args.block_size)
     else:  # train
         return BigQueryDataset(tokenizer, project_name=project_name,
-                               table_name="ASNQ_train",
+                               table_name="ASNQ_train.ASNQ_train",
                                batch_size=batch_size,
                                block_size=args.block_size)
 
