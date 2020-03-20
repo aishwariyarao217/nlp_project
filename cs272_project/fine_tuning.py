@@ -195,7 +195,6 @@ def train(args, train_dataset, model: PreTrainedModel, tokenizer: PreTrainedToke
                 mc_logitsn.append(outputs[3][0, 1].squeeze().item())
             total_samples += 1
             loss = lm_loss + mc_loss
-            loss = torch.sum(loss) #############################################
             loss.backward()
 
             if lm_loss.item() != 0.0:
