@@ -182,7 +182,7 @@ def train(args, train_dataset, model: PreTrainedModel, tokenizer: PreTrainedToke
             model.train()
             outputs = model(inputs, lm_labels=lm_labels, mc_labels=mc_labels)
             lm_loss = torch.where(mc_labels == 1, outputs[0], torch.zeros_like(outputs[0]))
-
+            lm_loss = torch.where(mc_labels == 1, outputs[0], torch.zeros_like(outputs[0])).mean()
             mc_loss = outputs[1]
             if torch.any(mc_labels == 1):
                 if len(mc_logitsp) > 100:
